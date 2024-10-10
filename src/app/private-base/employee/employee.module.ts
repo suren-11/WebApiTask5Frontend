@@ -1,17 +1,16 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
-import { LoginComponent } from './login/login.component';
+import { ShowEmployeesComponent } from './show-employees/show-employees.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-
 const routes: Routes = [
-  { path: '', component: LoginComponent }
+  { path: 'show-all-employees', component: ShowEmployeesComponent }
 ];
 
 @NgModule({
   declarations: [
-    LoginComponent
+    ShowEmployeesComponent
   ],
   imports: [
     CommonModule,
@@ -19,6 +18,6 @@ const routes: Routes = [
     ReactiveFormsModule,
     RouterModule.forChild(routes),
   ],
-  exports:[RouterModule,]
+  exports:[RouterModule]
 })
-export class PublicBaseModule { }
+export class EmployeeModule { }

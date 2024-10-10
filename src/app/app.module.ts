@@ -5,12 +5,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PublicBaseComponent } from './public-base/public-base.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { PublicBaseModule } from './public-base/public-base.module';
+import { PrivateBaseComponent } from './private-base/private-base.component';
+import { provideHttpClient, withFetch } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PublicBaseComponent
+    PublicBaseComponent,
+    PrivateBaseComponent,
   ],
   imports: [
     BrowserModule,
@@ -19,7 +21,8 @@ import { PublicBaseModule } from './public-base/public-base.module';
     ReactiveFormsModule,
   ],
   providers: [
-    provideClientHydration()
+    provideClientHydration(),
+    provideHttpClient(withFetch()),
   ],
   bootstrap: [AppComponent]
 })

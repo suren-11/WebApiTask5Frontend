@@ -1,0 +1,60 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark vw-100">
+    <div class="container-fluid">
+
+        <h3 class="navbar-brand">Private Base</h3>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
+            aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+                <li class="nav-item dropdown">
+                    <button class="nav-link dropdown-toggle" id="studentDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false" (click)="isStudentDropdownOpen = !isStudentDropdownOpen">
+                        Employee
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="studentDropdown" [class.show]="isStudentDropdownOpen">
+                        <li><a class="dropdown-item" routerLink="/dashboard/student/add-student">Add Employee</a></li>
+                        <li><a class="dropdown-item" routerLink="/dashboard/employee/show-all-employees">Show Employees</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="nav-item dropdown" (mouseleave)="isCourseDropdownOpen = false">
+                    <button class="nav-link dropdown-toggle" id="courseDropdown" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false" (click)="isCourseDropdownOpen = !isCourseDropdownOpen">
+                        Course
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="courseDropdown" [class.show]="isCourseDropdownOpen">
+                        <li><a class="dropdown-item" routerLink="/dashboard/course/add-course">Add Course</a></li>
+                        <li><a class="dropdown-item" routerLink="/dashboard/course/show-courses">Show Courses</a></li>
+                    </ul>
+                </li>
+
+                <li class="nav-item dropdown" (mouseleave)="isMyTestingDropdownOpen = false">
+                    <button class="nav-link dropdown-toggle" id="testingDropdown" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false" (click)="isMyTestingDropdownOpen = !isMyTestingDropdownOpen">
+                        My-Testing
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="testingDropdown" [class.show]="isMyTestingDropdownOpen">
+                        <li><a class="dropdown-item" routerLink="/dashboard/my-testing">My Testing</a></li>
+                        <li><a class="dropdown-item" routerLink="/dashboard/my-testing/testing2">Reusable Parent</a></li>
+                        <li><a class="dropdown-item" routerLink="/dashboard/my-testing/subject-list">Subjects</a></li>
+                        <li><a class="dropdown-item" routerLink="/dashboard/my-testing/add-student">Add Student</a></li>
+                    </ul>
+                </li>
+            </ul>
+
+            <div class="ms-auto">
+                <button class="btn btn-danger" routerLink="/login">Logout</button>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="d-flex align-items-center justify-content-center mt-4">
+    <router-outlet></router-outlet>
+</div>

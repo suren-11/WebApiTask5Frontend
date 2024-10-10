@@ -1,0 +1,31 @@
+<div class="vw-100 d-flex align-items-center flex-column container m-4">
+    <h3 class="text-success text-center ms-5">Employee List From Backend</h3>
+    <table class="table table-bordered border-black text-center ms-5">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th scope="col">Name</th>
+                <th scope="col">NIC</th>
+                <th scope="col">Email</th>
+                <th scope="col">DOB</th>
+                <th scope="col">Gender</th>
+                <th scope="col">Created</th>
+                <th scope="col">Updated</th>
+                <th scope="col">Option</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let employee of employees">
+                <td>{{employee.id}}</td>
+                <td>{{employee.name}}</td>
+                <td>{{employee.nic}}</td>
+                <td>{{employee.email}}</td>
+                <td>{{employee.dateOfBirth| date: 'dd/MM/yyyy'}}</td>
+                <td>{{employee.gender}}</td>
+                <td>{{employee.created}}</td>
+                <td>{{employee.updated}}</td>
+                <td><button class="btn btn-success px-5">Edit</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
