@@ -17,7 +17,7 @@
                         Employee
                     </button>
                     <ul class="dropdown-menu" aria-labelledby="studentDropdown" [class.show]="isStudentDropdownOpen">
-                        <li><a class="dropdown-item" routerLink="/dashboard/student/add-student">Add Employee</a></li>
+                        <li><a class="dropdown-item" routerLink="/dashboard/employee">Add Employee</a></li>
                         <li><a class="dropdown-item" routerLink="/dashboard/employee/show-all-employees">Show Employees</a>
                         </li>
                     </ul>
@@ -55,6 +55,6 @@
     </div>
 </nav>
 
-<div class="d-flex align-items-center justify-content-center mt-4">
+<div class="d-flex align-items-center justify-content-center mt-4 vw-100">
     <router-outlet></router-outlet>
 </div>

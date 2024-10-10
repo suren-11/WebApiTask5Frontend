@@ -29,4 +29,9 @@ export class ShowEmployeesComponent implements OnInit {
     });
   }
 
+  goToUpdate(employee: Employee) {
+    this.employeeService.setEmployee(employee);
+    this.router.navigate(['/dashboard/employee/update-employee']);
+  }
+
 }

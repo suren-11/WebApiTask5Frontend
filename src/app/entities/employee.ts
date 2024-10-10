@@ -2,17 +2,17 @@ import e from "express";
 
 export class Employee {
 
-    id: string;
-    nic:string;
-    name: string;
-    email:string;
-    dateOfBirth: Date;
-    gender: string;
-    created: Date;
-    updated: Date;
+      id: bigint;
+      name:string;
+      nic: string;
+      email:string;
+      dateOfBirth: Date;
+      gender: string;
+      created: Date;
+      updated: Date;
 
     constructor(
-        id: string,
+        id: bigint,
         nic: string,
         name: string,
         email: string,
