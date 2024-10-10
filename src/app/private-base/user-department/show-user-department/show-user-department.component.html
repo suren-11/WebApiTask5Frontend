@@ -1,0 +1,25 @@
+<div class="vw-100 d-flex align-items-center flex-column container m-4">
+    <h3 class="text-success text-center ms-5">User Department List From Backend</h3>
+    <table class="table table-bordered border-black text-center ms-5">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th scope="col">User Id</th>
+                <th scope="col">Department Id</th>
+                <th scope="col">Created Date</th>
+                <th scope="col">Updated Date</th>
+                <th scope="col">Option</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let dept of userDepartments">
+                <td>{{dept.id}}</td>
+                <td>{{dept.userId}}</td>
+                <td>{{dept.departmentId}}</td>
+                <td>{{dept.createdDate| date: 'dd/MM/yyyy'}}</td>
+                <td>{{dept.lastUpdatedDate| date: 'dd/MM/yyyy'}}</td>
+                <td><button class="btn btn-success px-5" (click)="goToUpdate(dept)">Edit</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

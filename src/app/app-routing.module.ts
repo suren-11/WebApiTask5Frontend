@@ -12,6 +12,7 @@ const routes: Routes = [
     path: 'dashboard', component: PrivateBaseComponent, children: [
       { path: 'employee', loadChildren: () => import('../app/private-base/employee/employee.module').then(m => m.EmployeeModule) },
       { path: 'department', loadChildren: () => import('../app/private-base/department/department.module').then(m => m.DepartmentModule) },
+      { path: 'user-department', loadChildren: () => import('../app/private-base/user-department/user-department.module').then(m => m.UserDepartmentModule) },
     ]
   },
   { path: '', redirectTo: '/login', pathMatch: 'full' },

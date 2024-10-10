@@ -9,7 +9,7 @@ import { DepartmentService } from '../../../services/department/department.servi
   styleUrl: './show-departments.component.css'
 })
 export class ShowDepartmentsComponent {
-  departments: Department[] = [];
+  departments: Department[] = []; 
 
   constructor(private router: Router, private departmentService: DepartmentService) { }
 

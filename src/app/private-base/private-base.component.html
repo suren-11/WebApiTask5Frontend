@@ -34,16 +34,16 @@
                     </ul>
                 </li>
 
-                <li class="nav-item dropdown" (mouseleave)="isMyTestingDropdownOpen = false">
+                <li class="nav-item dropdown">
                     <button class="nav-link dropdown-toggle" id="testingDropdown" role="button" data-bs-toggle="dropdown"
                         aria-expanded="false" (click)="isMyTestingDropdownOpen = !isMyTestingDropdownOpen">
-                        My-Testing
+                        User Department
                     </button>
                     <ul class="dropdown-menu" aria-labelledby="testingDropdown" [class.show]="isMyTestingDropdownOpen">
-                        <li><a class="dropdown-item" routerLink="/dashboard/my-testing">My Testing</a></li>
-                        <li><a class="dropdown-item" routerLink="/dashboard/my-testing/testing2">Reusable Parent</a></li>
-                        <li><a class="dropdown-item" routerLink="/dashboard/my-testing/subject-list">Subjects</a></li>
-                        <li><a class="dropdown-item" routerLink="/dashboard/my-testing/add-student">Add Student</a></li>
+                        <li><a class="dropdown-item" routerLink="/dashboard/user-department">Add User Departments</a></li>
+                        <!-- <li><a class="dropdown-item" routerLink="/dashboard/my-testing/testing2">Reusable Parent</a></li> -->
+                        <li><a class="dropdown-item" routerLink="/dashboard/user-department/show-user-departments">Show User Departments</a></li>
+                        <li><a class="dropdown-item" routerLink="/dashboard/user-department/update-user-departments">Update User Departments</a></li>
                     </ul>
                 </li>
             </ul>

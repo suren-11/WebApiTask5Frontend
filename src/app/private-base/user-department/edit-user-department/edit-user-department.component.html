@@ -1,0 +1,49 @@
+<div class="d-flex">
+
+    <div class="container d-flex justify-content-center align-items-center flex-column">
+
+        <h3>Add Employee</h3>
+
+        <form class="row d-flex justify-content-center my-3" (ngSubmit)="update()" [formGroup]="userDepartmentForm">
+
+            <div class="col-md-8">
+
+                <label for="departmentId">Department</label>
+
+                <select class="form-control" name="departmentId" id="departmentId" formControlName="departmentId"
+                    [ngClass]="{'is-invalid': userDepartmentForm.controls['departmentId'].invalid && userDepartmentForm.controls['departmentId'].touched}">
+
+                    <option value="" disabled>Select the Department here</option>
+                    <option *ngFor="let dept of departments" [value]="dept.id">{{ dept.name }}</option>
+                </select>
+
+                <div *ngIf="userDepartmentForm.controls['departmentId'].errors?.['required'] && userDepartmentForm.controls['departmentId'].touched"
+                    class="invalid-feedback">
+                    Department is required
+                </div>
+            </div>
+            <div class="col-md-8">
+
+                <label for="userId">Employee</label>
+
+                <select class="form-control" name="userId" id="userId" formControlName="userId"
+                    [ngClass]="{'is-invalid': userDepartmentForm.controls['userId'].invalid && userDepartmentForm.controls['userId'].touched}">
+
+                    <option value="" disabled>Select the gender here</option>
+                    <option *ngFor="let emp of employees" [value]="emp.id">{{ emp.name }}</option>
+                </select>
+
+                <div *ngIf="userDepartmentForm.controls['userId'].errors?.['required'] && userDepartmentForm.controls['userId'].touched"
+                    class="invalid-feedback">
+                    Employee is required
+                </div>
+            </div>
+
+            <div class="col-8 d-flex align-items-center justify-content-center mt-3">
+                <button class="btn btn-primary w-100" type="submit">Save</button>
+            </div>
+
+        </form>
+        
+    </div>
+</div>
