@@ -1,0 +1,62 @@
+<div class="d-flex">
+
+    <div class="container d-flex justify-content-center align-items-center flex-column">
+
+        <h3>Add Employee</h3>
+
+        <form class="row d-flex justify-content-center my-3" (ngSubmit)="save()" [formGroup]="departmentForm">
+
+            <div class="col-md-8">
+
+                <label for="name" class="form-label">Name</label>
+
+                <input type="text" class="form-control" id="name" placeholder="Ex: Human Resource" name="name"
+                    formControlName="name"
+                    [ngClass]="{'is-invalid': departmentForm.controls['name'].invalid && departmentForm.controls['name'].touched}">
+
+                <div *ngIf="departmentForm.controls['name'].touched" class="invalid-feedback">
+                    <div *ngIf="departmentForm.controls['name'].errors?.['required']">Name is required</div>
+                    <div *ngIf="departmentForm.controls['name'].errors?.['minlength']">Name must be at least 5 characters
+                        long
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col-md-8">
+
+                <label for="description" class="form-label">Descrtiption</label>
+                <input type="text" class="form-control" id="description" placeholder="Ex: Humen Resource Works" name="description"
+                    formControlName="description"
+                    [ngClass]="{'is-invalid': departmentForm.controls['description'].invalid && departmentForm.controls['description'].touched}">
+
+                <div *ngIf="departmentForm.controls['description'].touched" class="invalid-feedback">
+                    <div *ngIf="departmentForm.controls['description'].errors?.['required']">Description is required</div>
+                    <div *ngIf="departmentForm.controls['description'].errors?.['minlength']">Description must be at least 5
+                        characters long
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-8">
+
+                <label for="code" class="form-label">Code</label>
+                <input type="text" class="form-control" id="code" placeholder="HR" name="code"
+                    formControlName="code"
+                    [ngClass]="{'is-invalid': departmentForm.controls['code'].invalid && departmentForm.controls['code'].touched}">
+
+                <div *ngIf="departmentForm.controls['code'].touched" class="invalid-feedback">
+                    <div *ngIf="departmentForm.controls['code'].errors?.['required']">nic is required</div>
+                    <div *ngIf="departmentForm.controls['code'].errors?.['code']">Provide valid code
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-8 d-flex align-items-center justify-content-center mt-3">
+                <button class="btn btn-primary w-100" type="submit">Save</button>
+            </div>
+
+        </form>
+        
+    </div>
+</div>

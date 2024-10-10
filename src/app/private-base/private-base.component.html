@@ -23,14 +23,14 @@
                     </ul>
                 </li>
 
-                <li class="nav-item dropdown" (mouseleave)="isCourseDropdownOpen = false">
+                <li class="nav-item dropdown">
                     <button class="nav-link dropdown-toggle" id="courseDropdown" role="button" data-bs-toggle="dropdown"
                         aria-expanded="false" (click)="isCourseDropdownOpen = !isCourseDropdownOpen">
-                        Course
+                        Department
                     </button>
                     <ul class="dropdown-menu" aria-labelledby="courseDropdown" [class.show]="isCourseDropdownOpen">
-                        <li><a class="dropdown-item" routerLink="/dashboard/course/add-course">Add Course</a></li>
-                        <li><a class="dropdown-item" routerLink="/dashboard/course/show-courses">Show Courses</a></li>
+                        <li><a class="dropdown-item" routerLink="/dashboard/department/">Add Department</a></li>
+                        <li><a class="dropdown-item" routerLink="/dashboard/department/show-all-departments">Show Departments</a></li>
                     </ul>
                 </li>
 
