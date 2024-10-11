@@ -1,0 +1,86 @@
+<div class="d-flex">
+
+    <div class="container d-flex justify-content-center align-items-center flex-column">
+
+        <h3>Placed Order</h3>
+
+        <form class="row d-flex justify-content-center my-3" (ngSubmit)="setOrderItems()" [formGroup]="orderItemForm">
+
+            <div class="col-md-8">
+
+                <label for="userId">Item</label>
+
+                <select class="form-control" name="id" id="id" formControlName="id"
+                    [ngClass]="{'is-invalid': orderItemForm.controls['id'].invalid && orderItemForm.controls['id'].touched}">
+
+                    <option value="" disabled>Select the Product here</option>
+                    <option *ngFor="let item of items" [value]="item.id">{{ item.name }}</option>
+                </select>
+
+                <div *ngIf="orderItemForm.controls['id'].errors?.['required'] && orderItemForm.controls['id'].touched"
+                    class="invalid-feedback">
+                    Employee is required
+                </div>
+            </div>
+
+            <div class="col-md-8">
+
+                <label for="qty" class="form-label">Qty</label>
+                <input type="text" class="form-control" id="qty" placeholder="Ex: 10" name="qty"
+                    formControlName="qty">
+
+                <div *ngIf="orderItemForm.controls['qty'].touched" class="invalid-feedback">
+                    <div *ngIf="orderItemForm.controls['qty'].errors?.['required']">qty is required</div>
+                </div>
+            </div>
+
+            <div class="col-8 d-flex align-items-center justify-content-center mt-3">
+                <button class="btn btn-success w-100" type="submit">Add to Cart</button>
+            </div>
+
+        </form>
+        <h4>Cart Items</h4>
+        <div *ngIf="orderdItems.length > 0">
+            <table class="table table-hover table-bordered">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Qty</th>
+                        <th>total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of orderdItems">
+                        <td>{{item.id}}</td>
+                        <td>{{item.qty}}</td>
+                        <td>{{item.total}}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div>Grand Total : {{grandTotal}}</div>
+        </div>
+        <form class="row d-flex justify-content-center my-3" (ngSubmit)="save()" [formGroup]="orderForm">
+
+            <div class="col-md-8">
+
+                <label for="employeeId">Employee Id</label>
+
+                <select class="form-control" name="employeeId" id="employeeId" formControlName="employeeId"
+                    [ngClass]="{'is-invalid': orderForm.controls['employeeId'].invalid && orderForm.controls['employeeId'].touched}">
+
+                    <option value="" disabled>Select the Employee here</option>
+                    <option *ngFor="let emp of employees" [value]="emp.id">{{ emp.name }}</option>
+                </select>
+
+                <div *ngIf="orderForm.controls['employeeId'].errors?.['required'] && orderForm.controls['employeeId'].touched"
+                    class="invalid-feedback">
+                    Employee is required
+                </div>
+            </div>
+
+            <div class="col-8 d-flex align-items-center justify-content-center mt-3">
+                <button class="btn btn-primary w-100" type="submit">Save the order</button>
+            </div>
+        </form>
+    </div>
+</div>

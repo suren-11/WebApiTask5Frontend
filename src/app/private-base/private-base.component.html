@@ -42,7 +42,6 @@
                     <ul class="dropdown-menu" aria-labelledby="testingDropdown" [class.show]="isMyTestingDropdownOpen">
                         <li><a class="dropdown-item" routerLink="/dashboard/user-department">Add User Departments</a></li>
                         <li><a class="dropdown-item" routerLink="/dashboard/user-department/show-user-departments">Show User Departments</a></li>
-                        <li><a class="dropdown-item" routerLink="/dashboard/user-department/update-user-departments">Update User Departments</a></li>
                     </ul>
                 </li>
                 
@@ -54,7 +53,17 @@
                     <ul class="dropdown-menu" aria-labelledby="itemDropdown" [class.show]="isItemDropdownOpen">
                         <li><a class="dropdown-item" routerLink="/dashboard/item">Add Item</a></li>
                         <li><a class="dropdown-item" routerLink="/dashboard/item/show-all-items">Show Items</a></li>
-                        <li><a class="dropdown-item" routerLink="/dashboard/item/update-item">Update Item</a></li>
+                    </ul>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <button class="nav-link dropdown-toggle" id="orderDropdown" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false" (click)="isOrderDropdownOpen = !isOrderDropdownOpen">
+                        Order
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="orderDropdown" [class.show]="isOrderDropdownOpen">
+                        <li><a class="dropdown-item" routerLink="/dashboard/order">Add Order</a></li>
+                        <li><a class="dropdown-item" routerLink="/dashboard/order/show-all-orders">Show Orders</a></li>
                     </ul>
                 </li>
             </ul>
