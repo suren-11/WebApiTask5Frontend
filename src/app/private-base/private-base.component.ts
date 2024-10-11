@@ -10,6 +10,7 @@ export class PrivateBaseComponent {
 isStudentDropdownOpen = false;
 isCourseDropdownOpen = false;
 isMyTestingDropdownOpen = false;
+isItemDropdownOpen = false;
 
 
 }

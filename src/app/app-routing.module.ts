@@ -13,6 +13,7 @@ const routes: Routes = [
       { path: 'employee', loadChildren: () => import('../app/private-base/employee/employee.module').then(m => m.EmployeeModule) },
       { path: 'department', loadChildren: () => import('../app/private-base/department/department.module').then(m => m.DepartmentModule) },
       { path: 'user-department', loadChildren: () => import('../app/private-base/user-department/user-department.module').then(m => m.UserDepartmentModule) },
+      { path: 'item', loadChildren: () => import('../app/private-base/item/item.module').then(m => m.ItemModule) },
     ]
   },
   { path: '', redirectTo: '/login', pathMatch: 'full' },

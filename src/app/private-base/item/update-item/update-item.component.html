@@ -1,0 +1,60 @@
+<div class="d-flex">
+
+    <div class="container d-flex justify-content-center align-items-center flex-column">
+
+        <h3>Add Employee</h3>
+
+        <form class="row d-flex justify-content-center my-3" (ngSubmit)="update()" [formGroup]="itemForm">
+
+            <div class="col-md-8">
+
+                <label for="name" class="form-label">Name</label>
+
+                <input type="text" class="form-control" id="name" placeholder="Ex: Product" name="name"
+                    formControlName="name"
+                    [ngClass]="{'is-invalid': itemForm.controls['name'].invalid && itemForm.controls['name'].touched}">
+
+                <div *ngIf="itemForm.controls['name'].touched" class="invalid-feedback">
+                    <div *ngIf="itemForm.controls['name'].errors?.['required']">Name is required</div>
+                    <div *ngIf="itemForm.controls['name'].errors?.['minlength']">Name must be at least 5 characters
+                        long
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col-md-8">
+
+                <label for="description" class="form-label">Description</label>
+                <input type="text" class="form-control" id="description" placeholder="Ex: description" name="description"
+                    formControlName="description"
+                    [ngClass]="{'is-invalid': itemForm.controls['description'].invalid && itemForm.controls['description'].touched}">
+
+                <div *ngIf="itemForm.controls['description'].touched" class="invalid-feedback">
+                    <div *ngIf="itemForm.controls['description'].errors?.['required']">nic is required</div>
+                    <div *ngIf="itemForm.controls['description'].errors?.['minlength']">nic must be at least 5
+                        characters long
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-8">
+
+                <label for="price" class="form-label">Price</label>
+                <input type="text" class="form-control" id="price" placeholder="Ex: 2000" name="price"
+                    formControlName="price"
+                    [ngClass]="{'is-invalid': itemForm.controls['price'].invalid && itemForm.controls['price'].touched}">
+
+                <div *ngIf="itemForm.controls['price'].touched" class="invalid-feedback">
+                    <div *ngIf="itemForm.controls['price'].errors?.['required']">nic is required</div>
+                </div>
+            </div>
+
+            <div class="col-8 d-flex align-items-center justify-content-center mt-3">
+                <button class="btn btn-primary w-100" type="submit">Update</button>
+            </div>
+
+        </form>
+        
+    </div>
+</div>

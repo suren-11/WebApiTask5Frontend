@@ -1,0 +1,27 @@
+<div class="vw-100 d-flex align-items-center flex-column container m-4">
+    <h3 class="text-success text-center ms-5">Item List From Backend MongoDb</h3>
+    <table class="table table-bordered border-black text-center ms-5">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th scope="col">Name</th>
+                <th scope="col">Description</th>
+                <th scope="col">Price</th>
+                <th scope="col">Created Date</th>
+                <th scope="col">Updated Date</th>
+                <th scope="col">Option</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of items">
+                <td>{{item.id}}</td>
+                <td>{{item.name}}</td>
+                <td>{{item.description}}</td>
+                <td>{{item.price}}</td>
+                <td>{{item.created| date: 'dd/MM/yyyy'}}</td>
+                <td>{{item.updated| date: 'dd/MM/yyyy'}}</td>
+                <td><button class="btn btn-success px-5" (click)="goToUpdate(item)">Edit</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
