@@ -6,19 +6,23 @@
                 <th>Id</th>
                 <th scope="col">User Id</th>
                 <th scope="col">Department Id</th>
-                <th scope="col">Created Date</th>
-                <th scope="col">Updated Date</th>
-                <th scope="col">Option</th>
+                <th scope="col">Active</th>
             </tr>
         </thead>
         <tbody>
             <tr *ngFor="let dept of userDepartments">
                 <td>{{dept.id}}</td>
                 <td>{{dept.userId}}</td>
-                <td>{{dept.departmentId}}</td>
-                <td>{{dept.createdDate| date: 'dd/MM/yyyy'}}</td>
-                <td>{{dept.lastUpdatedDate| date: 'dd/MM/yyyy'}}</td>
-                <td><button class="btn btn-success px-5" (click)="goToUpdate(dept)">Edit</button></td>
+                <td>
+                    {{dept.departmentId}}</td>
+                    <td>
+                        @if (dept.isActive) {
+                            <button class="btn btn-success btn-sm">Working</button>
+                        }
+                        @else {
+                            <button class="btn btn-danger btn-sm">Closed</button>
+                        }
+                    </td>
             </tr>
         </tbody>
     </table>

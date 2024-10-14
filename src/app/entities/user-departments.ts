@@ -1,23 +1,20 @@
 
 export class UserDepartment {
 
-    id: bigint;
+    id: number;
     userId: bigint;
     departmentId: bigint;
-    createdDate: Date;
-    lastUpdatedDate: Date;
+    isActive: boolean;
 
     constructor(
-        id: bigint,
+        id: number,
         userId: bigint,
         departmentId: bigint,
-        createdDate: Date,
-        lastUpdatedDate: Date
+        isActive: boolean
     ) {
         this.id = id;
         this.userId = userId;
         this.departmentId = departmentId;
-        this.createdDate = createdDate;
-        this.lastUpdatedDate = lastUpdatedDate
+        this.isActive = isActive;
     }
 }

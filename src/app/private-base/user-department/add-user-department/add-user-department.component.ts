@@ -14,7 +14,7 @@ import { EmployeeService } from '../../../services/employee/employee.service';
   styleUrl: './add-user-department.component.css'
 })
 export class AddUserDepartmentComponent implements OnInit {
-  userDepartment: UserDepartment = new UserDepartment(0n, 0n, 0n, new Date(), new Date());
+  userDepartment: UserDepartment = new UserDepartment(0, 0n, 0n, true);
 
   userDepartmentForm!: FormGroup;
   departments:Department[]=[];
@@ -28,7 +28,6 @@ export class AddUserDepartmentComponent implements OnInit {
     private fb: FormBuilder
   ) {
     this.userDepartmentForm = this.fb.group({
-      id:[1],
       userId: [0, [Validators.required]],
       departmentId: [0, [Validators.required]],
     });
@@ -41,10 +40,9 @@ export class AddUserDepartmentComponent implements OnInit {
 
   save() {
     if (this.userDepartmentForm.valid) {
-      this.userDepartment.id = this.userDepartmentForm.get('id')?.value,
       this.userDepartment.userId = this.userDepartmentForm.get('userId')?.value;
       this.userDepartment.departmentId = this.userDepartmentForm.get('departmentId')?.value;
-    
+      
       this.userDepartmentService.saveUserDepartment(this.userDepartment).subscribe(
         response =>{
           this.router.navigate(['/dashboard/user-department/show-user-departments'])
@@ -58,8 +56,6 @@ export class AddUserDepartmentComponent implements OnInit {
   loadDepartments() {
    this.departmentService.getDepartments().subscribe({
     next:(data)=>{
-      console.log(data);
-      
       this.departments = data
     }
     });
@@ -68,8 +64,6 @@ export class AddUserDepartmentComponent implements OnInit {
   loadEmployees() {
    this.employeeService.getEmployees().subscribe({
     next:(data)=>{
-      console.log(data);
-      
       this.employees = data
     }
     });
