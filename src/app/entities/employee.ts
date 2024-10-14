@@ -2,24 +2,21 @@ import { GenderEnum } from "../enum/GenderEnum";
 
 export class Employee {
 
-      id: bigint;
+      id: number;
       name:string;
       nic: string;
       email:string;
       dateOfBirth: Date;
-      gender: GenderEnum;
-      created: Date;
-      updated: Date;
+      gender: string;
 
     constructor(
-        id: bigint,
+        id: number,
         nic: string,
         name: string,
         email: string,
         dateOfBirth: Date,
-        gender: GenderEnum,
-        created: Date,
-        updated: Date,
+        gender: string,
+
     ) {
         this.id = id;
         this.nic = nic;
@@ -27,7 +24,5 @@ export class Employee {
         this.email = email;
         this.dateOfBirth = dateOfBirth;
         this.gender = gender;
-        this.created = created;
-        this.updated = updated;
     }
 }

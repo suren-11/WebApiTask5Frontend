@@ -6,6 +6,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AddEmployeeComponent } from './add-employee/add-employee.component';
 import { UpdateEmployeeComponent } from './update-employee/update-employee.component';
 import { GenderPipe } from '../../pipe/gender.pipe';
+import { DatePickerComponent } from '../../widget/date-picker/date-picker.component';
 
 const routes: Routes = [
   { path: '', component: AddEmployeeComponent },
@@ -18,7 +19,8 @@ const routes: Routes = [
     ShowEmployeesComponent,
     AddEmployeeComponent,
     UpdateEmployeeComponent,
-    GenderPipe
+    GenderPipe,
+    DatePickerComponent
   ],
   imports: [
     CommonModule,

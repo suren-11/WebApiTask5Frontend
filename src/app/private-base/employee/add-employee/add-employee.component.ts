@@ -12,8 +12,7 @@ import { GenderEnum } from '../../../enum/GenderEnum';
 })
 export class AddEmployeeComponent implements OnInit {
 
-  employee: Employee = new Employee(0n, '', '', '', new Date(), GenderEnum.Male, new Date(), new Date());
-  genderEnum!:GenderEnum;
+  employee: Employee = new Employee(0, '', '', '', new Date(), '');
 
   employeeForm!: FormGroup;
 
@@ -23,7 +22,6 @@ export class AddEmployeeComponent implements OnInit {
     private fb: FormBuilder
   ) {
     this.employeeForm = this.fb.group({
-      id:[1],
       name: ['', [Validators.required, Validators.minLength(5)]],
       nic: ['', [Validators.required, Validators.minLength(10)]],
       email: ['', [Validators.required, Validators.email]],
@@ -33,19 +31,20 @@ export class AddEmployeeComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // this.loadCourses();
-    // this.students = this.studentService.getStudents();
+
   }
 
   save() {
     if (this.employeeForm.valid) {
-      this.employee.id = this.employeeForm.get('id')?.value,
       this.employee.name = this.employeeForm.get('name')?.value;
       this.employee.nic = this.employeeForm.get('nic')?.value;
       this.employee.email = this.employeeForm.get('email')?.value;
-      this.employee.dateOfBirth = this.employeeForm.get('dob')?.value;
+      this.employee.dateOfBirth = new Date(this.employeeForm.get('dob')?.value);
       this.employee.gender = this.employeeForm.get('gender')?.value;
 
+      console.log(this.employee);
+      
+    
       this.employeeService.saveEmployee(this.employee).subscribe(
         response =>{
           this.router.navigate(['/dashboard/employee/show-all-employees'])
@@ -54,9 +53,13 @@ export class AddEmployeeComponent implements OnInit {
     } else {
       this.employeeForm.markAllAsTouched();
     }
+
+    // console.log(this.e);
+    // this.employeeService.saveEmployee(this.e).subscribe(
+    //   response =>{
+    //     this.router.navigate(['/dashboard/employee/show-all-employees'])
+    //   }
+    // );
   }
 
-  // loadCourses() {
-  //   this.courses = this.courseService.getCourses();
-  // }
 }
