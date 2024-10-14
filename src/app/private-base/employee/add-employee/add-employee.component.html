@@ -51,18 +51,13 @@
                     </div>
                 </div>
             </div>
-
             <div class="col-md-8">
                 <label for="dob" class="form-label">Date of Birth</label>
-
-                <input type="date" class="form-control" id="dob" name="dob" formControlName="dob"
-                    [ngClass]="{'is-invalid': employeeForm.controls['dob'].invalid && employeeForm.controls['dob'].touched}">
-
-                <div *ngIf="employeeForm.controls['dob'].errors?.['required'] && employeeForm.controls['dob'].touched"
-                    class="invalid-feedback">
-                    Date of Birth is required
+                <app-date-picker formControlName="dob"></app-date-picker>
+                <div *ngIf="employeeForm.controls['dob'].invalid && employeeForm.controls['dob'].touched" class="invalid-feedback">
+                  Please select a valid date of birth.
                 </div>
-            </div>
+              </div>
 
             <div class="col-md-8">
 

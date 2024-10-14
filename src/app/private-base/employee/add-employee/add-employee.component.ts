@@ -39,12 +39,9 @@ export class AddEmployeeComponent implements OnInit {
       this.employee.name = this.employeeForm.get('name')?.value;
       this.employee.nic = this.employeeForm.get('nic')?.value;
       this.employee.email = this.employeeForm.get('email')?.value;
-      this.employee.dateOfBirth = new Date(this.employeeForm.get('dob')?.value);
+      this.employee.dateOfBirth = this.employeeForm.get('dob')?.value;
       this.employee.gender = this.employeeForm.get('gender')?.value;
-
-      console.log(this.employee);
       
-    
       this.employeeService.saveEmployee(this.employee).subscribe(
         response =>{
           this.router.navigate(['/dashboard/employee/show-all-employees'])
@@ -54,12 +51,6 @@ export class AddEmployeeComponent implements OnInit {
       this.employeeForm.markAllAsTouched();
     }
 
-    // console.log(this.e);
-    // this.employeeService.saveEmployee(this.e).subscribe(
-    //   response =>{
-    //     this.router.navigate(['/dashboard/employee/show-all-employees'])
-    //   }
-    // );
   }
 
 }

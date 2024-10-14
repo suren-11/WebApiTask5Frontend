@@ -1,20 +1,5 @@
 <div class="col-4 d-flex">
-    <form [formGroup]="dateForm" (input)="onDateChange()">
-        <input type="tel" formControlName="day" placeholder="DD" class="form-control col-2">/
-        <input type="tel" formControlName="month" placeholder="MM" class="form-control col-2">/
-        <input type="tel" formControlName="year" placeholder="YYYY" class="form-control col-2">
-    </form>
-    <div class="d-flex flex-column">
-        <span
-            *ngIf="errorMessage && dateForm.controls['day'].touched && dateForm.controls['month'].touched && dateForm.controls['year'].touched"
-            class="text-danger">
-            Invalid date. Please enter a valid date (dd-mm-yyyy).
-        </span>
-        <span *ngIf="dateForm.controls['day'].errors?.['max']" class="text-danger">
-            Invalid date. Please enter a valid date (1 - 31).
-        </span>
-        <span *ngIf="dateForm.controls['month'].errors?.['max']" class="text-danger">
-            Invalid Month. Please enter a valid Month (1 - 12).
-        </span>
-    </div>
+    <input type="tel" [(ngModel)]="day" (ngModelChange)="onDateChange()" placeholder="Day"  class="form-control col-2"/>/
+    <input type="tel" [(ngModel)]="month" (ngModelChange)="onDateChange()" placeholder="Month"  class="form-control col-2"/>/
+    <input type="tel" [(ngModel)]="year" (ngModelChange)="onDateChange()" placeholder="Year"  class="form-control col-2"/>
 </div>

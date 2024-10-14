@@ -1,58 +1,62 @@
-import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Component, EventEmitter, forwardRef, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
+import { FormBuilder, FormGroup, NG_VALUE_ACCESSOR, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-date-picker',
   templateUrl: './date-picker.component.html',
-  styleUrl: './date-picker.component.scss'
+  styleUrl: './date-picker.component.scss',
+  providers:[
+    {
+      provide: NG_VALUE_ACCESSOR,
+      useExisting: forwardRef(() => DatePickerComponent),
+      multi: true,
+    },
+  ]
 })
 export class DatePickerComponent {
 
-  dateForm: FormGroup;
+  @Input() selectedDate!: Date;
+  @Output() selectedDateChange = new EventEmitter<Date>();
 
-  @Input() selectedDate! :string;
+  day: number | null = null;
+  month: number | null = null;
+  year: number | null = null;
 
-  @Output() selectedDateChange = new EventEmitter<string>();
+  onChange: (date: Date) => void = () => {};
+  onTouched: () => void = () => {};
 
-  errorMessage: boolean  = false;
-  
-  constructor(private fb: FormBuilder) {
-    this.dateForm = this.fb.group({
-      day: ['', [Validators.required, Validators.maxLength(2), Validators.min(1), Validators.max(31)]],
-      month: ['', [Validators.required, Validators.maxLength(2), Validators.min(1), Validators.max(12)]],
-      year: ['', [Validators.required, Validators.maxLength(4), Validators.minLength(4)]],
-    });
+  ngOnInit() {
+    if (this.selectedDate) {
+      this.setDate(this.selectedDate);
+    }
+  }
+
+  setDate(date: Date) {
+    if (date) {
+      this.day = date.getDate();
+      this.month = date.getMonth() + 1;
+      this.year = date.getFullYear();
+    }
+  }
+
+  writeValue(date: Date): void {
+    this.setDate(date);
+  }
+
+  registerOnChange(fn: (date: Date) => void): void {
+    this.onChange = fn;
+  }
+
+  registerOnTouched(fn: () => void): void {
+    this.onTouched = fn;
   }
 
   onDateChange(): void {
-    if (this.dateForm.valid) {
-      this.selectedDate = `${this.dateForm.get('day')?.value}-${this.dateForm.get('month')?.value}-${this.dateForm.get('year')?.value}`;
-      const parsedDate = this.formatDate(this.selectedDate);
-      
-
-      if (parsedDate) {
-        this.errorMessage = false;
-        this.selectedDateChange.emit(this.selectedDate);
-      } else {
-        this.errorMessage = true;
-      }
-    } else {
-      this.errorMessage = true;
+    if (this.day && this.month && this.year) {
+      const selectedDate = new Date(this.year, this.month - 1, this.day);
+      this.onChange(selectedDate);
+      this.onTouched();
+      this.selectedDateChange.emit(selectedDate);
     }
   }
-
-  formatDate(date: string) {
-    if (!date) return false;
-
-    const [day, month, year] = date.split('-').map(Number);
-    
-    const parsedDate = new Date(year, month - 1, day);
-
-    if (parsedDate && parsedDate.getDate() === day && parsedDate.getMonth() === month - 1 && parsedDate.getFullYear() === year) {
-      return true;
-    }
-
-    return false; 
-  }
-
 }
