@@ -71,9 +71,11 @@
                 <select class="form-control" name="gender" id="gender" formControlName="gender"
                     [ngClass]="{'is-invalid': employeeForm.controls['gender'].invalid && employeeForm.controls['gender'].touched}">
 
+
                     <option value="" disabled>Select the gender here</option>
-                    <option value="Male">Male</option>
-                    <option value="Female">Female</option>
+                    <option [ngValue]="0">Male</option>
+                    <option [ngValue]="1">Female</option>
+                    <option [ngValue]="2">Other</option>
                 </select>
 
                 <div *ngIf="employeeForm.controls['gender'].errors?.['required'] && employeeForm.controls['gender'].touched"
@@ -87,6 +89,6 @@
             </div>
 
         </form>
-        
+
     </div>
 </div>

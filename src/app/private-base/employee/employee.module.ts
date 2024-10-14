@@ -5,6 +5,7 @@ import { ShowEmployeesComponent } from './show-employees/show-employees.componen
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AddEmployeeComponent } from './add-employee/add-employee.component';
 import { UpdateEmployeeComponent } from './update-employee/update-employee.component';
+import { GenderPipe } from '../../pipe/gender.pipe';
 
 const routes: Routes = [
   { path: '', component: AddEmployeeComponent },
@@ -16,7 +17,8 @@ const routes: Routes = [
   declarations: [
     ShowEmployeesComponent,
     AddEmployeeComponent,
-    UpdateEmployeeComponent
+    UpdateEmployeeComponent,
+    GenderPipe
   ],
   imports: [
     CommonModule,

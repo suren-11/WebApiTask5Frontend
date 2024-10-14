@@ -3,6 +3,7 @@ import { Employee } from '../../../entities/employee';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { EmployeeService } from '../../../services/employee/employee.service';
 import { Router } from '@angular/router';
+import { GenderEnum } from '../../../enum/GenderEnum';
 
 @Component({
   selector: 'app-add-employee',
@@ -11,13 +12,13 @@ import { Router } from '@angular/router';
 })
 export class AddEmployeeComponent implements OnInit {
 
-  employee: Employee = new Employee(0n, '', '', '', new Date(), '', new Date(), new Date());
+  employee: Employee = new Employee(0n, '', '', '', new Date(), GenderEnum.Male, new Date(), new Date());
+  genderEnum!:GenderEnum;
 
   employeeForm!: FormGroup;
 
   constructor(
     private employeeService: EmployeeService,
-    // private courseService: CourseService,
     private router: Router,
     private fb: FormBuilder
   ) {

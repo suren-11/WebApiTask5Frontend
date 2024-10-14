@@ -1,3 +1,4 @@
+import { GenderEnum } from "../enum/GenderEnum";
 
 export class Employee {
 
@@ -6,7 +7,7 @@ export class Employee {
       nic: string;
       email:string;
       dateOfBirth: Date;
-      gender: string;
+      gender: GenderEnum;
       created: Date;
       updated: Date;
 
@@ -16,7 +17,7 @@ export class Employee {
         name: string,
         email: string,
         dateOfBirth: Date,
-        gender: string,
+        gender: GenderEnum,
         created: Date,
         updated: Date,
     ) {

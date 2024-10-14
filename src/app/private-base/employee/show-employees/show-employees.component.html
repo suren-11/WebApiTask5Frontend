@@ -21,7 +21,7 @@
                 <td>{{employee.nic}}</td>
                 <td>{{employee.email}}</td>
                 <td>{{employee.dateOfBirth| date: 'dd/MM/yyyy'}}</td>
-                <td>{{employee.gender}}</td>
+                <td>{{employee.gender|gender}}</td>
                 <td>{{employee.created}}</td>
                 <td>{{employee.updated}}</td>
                 <td><button class="btn btn-success px-5" (click)="goToUpdate(employee)">Edit</button></td>

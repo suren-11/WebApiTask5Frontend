@@ -7,6 +7,8 @@ import { PublicBaseComponent } from './public-base/public-base.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PrivateBaseComponent } from './private-base/private-base.component';
 import { provideHttpClient, withFetch } from '@angular/common/http';
+import { GenderPipe } from './pipe/gender.pipe';
+
 
 @NgModule({
   declarations: [
